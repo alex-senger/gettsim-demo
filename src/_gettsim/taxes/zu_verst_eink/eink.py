@@ -20,7 +20,7 @@ def eink_selbst_y(eink_selbst_m: float) -> float:
 def eink_abhängig_beschäftigt_y(
     bruttolohn_m: float,
     eink_st_abzuege_params: dict,
-) -> float:
+) -> int:
     """Aggregate monthly gross wage to yearly income and deduct
     'Werbungskostenpauschale'.
 
@@ -45,9 +45,9 @@ def eink_abhängig_beschäftigt_y(
 
 
 def _zu_verst_eink_abhängig_beschäftigt_y(
-    eink_abhängig_beschäftigt_y: float,
+    eink_abhängig_beschäftigt_y: int,
     geringfügig_beschäftigt: bool,
-) -> float:
+) -> int:
     """Calculate taxable income from dependent employment. In particular, taxable
     income is set to 0 for marginally employed persons.
 
@@ -64,7 +64,7 @@ def _zu_verst_eink_abhängig_beschäftigt_y(
 
     """
     if geringfügig_beschäftigt:
-        out = 0.0
+        out = 0
     else:
         out = eink_abhängig_beschäftigt_y
 
@@ -141,7 +141,7 @@ def eink_rente_zu_verst_y(
 @policy_info(start_date="2009-01-01", name_in_dag="sum_eink_y")
 def sum_eink_ohne_kapital_eink_y(
     eink_selbst_y: float,
-    _zu_verst_eink_abhängig_beschäftigt_y: float,
+    _zu_verst_eink_abhängig_beschäftigt_y: int,
     eink_vermietung_y: float,
     eink_rente_zu_verst_y: float,
 ) -> float:
@@ -201,7 +201,7 @@ def kapitaleink_y(
 @policy_info(end_date="2008-12-31", name_in_dag="sum_eink_y")
 def sum_eink_mit_kapital_eink_y(
     eink_selbst_y: float,
-    _zu_verst_eink_abhängig_beschäftigt_y: float,
+    _zu_verst_eink_abhängig_beschäftigt_y: int,
     eink_vermietung_y: float,
     eink_rente_zu_verst_y: float,
     kapitaleink_y: float,
