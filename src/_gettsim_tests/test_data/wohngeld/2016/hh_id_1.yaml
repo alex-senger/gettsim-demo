@@ -125,9 +125,9 @@ inputs:
       - 0.0
       - 0.0
     eink_abhängig_beschäftigt_y:
-      - 25000.0
-      - 0.0
-      - 0.0
+      - 25000
+      - 0
+      - 0
     kapitaleink_brutto_y:
       - 1000.0
       - 0.0

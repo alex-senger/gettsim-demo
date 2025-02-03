@@ -269,11 +269,11 @@ inputs:
       - false
       - false
     eink_abhängig_beschäftigt_y:
-      - 12000.0
-      - 12000.0
-      - 9600.0
-      - 0.0
-      - 0.0
+      - 12000
+      - 12000
+      - 9600
+      - 0
+      - 0
   assumed: {}
 outputs:
   wthh_id:
